@@ -1,3 +1,8 @@
+{{ config(
+    materialized="table"
+) }}
+
+
 SELECT 
     td.taxi_id,
     td.year,
