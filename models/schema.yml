@@ -1,0 +1,10 @@
+
+version: 2
+
+models:
+  marts:
+    +materialized: table
+    - name: mart_chicago_taxi_analysis
+  staging:
+    +materialized: table
+    - name: stg_tips_data
