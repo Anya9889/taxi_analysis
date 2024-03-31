@@ -1,0 +1,5 @@
+sources:
+  - name: taxi_trips
+    dataset: chicago_trips_copy
+    tables:
+      - name: taxi_trips  
