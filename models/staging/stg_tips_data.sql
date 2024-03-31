@@ -1,3 +1,8 @@
+{{ config(
+    materialized="table"
+) }}
+
+
 SELECT 
     taxi_id,
     extract(year from date(trip_start_timestamp)) AS year,
