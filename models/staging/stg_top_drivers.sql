@@ -16,5 +16,6 @@ GROUP BY
     taxi_id,
     extract(year from date(trip_start_timestamp)), 
     extract(month from date(trip_start_timestamp))
-ORDER BY 
-    taxi_id
+ORDER BY ROUND(SUM(tips), 3) DESC
+limit 3
+    
