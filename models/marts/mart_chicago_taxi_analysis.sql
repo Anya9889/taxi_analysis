@@ -21,9 +21,9 @@ where td.taxi_id in (select taxi_id from {{ ref('stg_top_drivers') }})
 and ((year = 2018 and month >= 4) or year = 2019)
 
 
-    {% if is_incremental() %}
-    AND (year = (SELECT MAX(year) FROM {{ this }}) AND month = (SELECT MAX(month) FROM {{ this }})))
-    {% endif %}
+{% if is_incremental() %}
+    AND (td.year = (SELECT MAX(year) FROM {{ this }}) AND td.month = (SELECT MAX(month) FROM {{ this }}))
+{% endif %}
 
 
 ORDER BY 
