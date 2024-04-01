@@ -15,4 +15,5 @@ FROM
     {{ ref('stg_taxi_tips_sum') }} as td
 where td.taxi_id in (select taxi_id from {{ ref('stg_top_drivers') }})
 ORDER BY 
-    td.tips_sum DESC
+    td.year,
+    td.month
