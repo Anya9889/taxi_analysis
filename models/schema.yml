@@ -6,8 +6,48 @@ models:
     materialized: table
     tables:
       - name: mart_chicago_taxi_analysis
+        columns:
+          - name : taxi_id
+          - description: unique identifier of taxi driver
+
+          - name : year
+          - description: year
+
+          - name : month
+          - description: month
+
+          - name : tips_sum
+          - description: sum of the tips for a driver 
+
+          - name : tips_change
+          - description: percentage of change in the sum of the tips for a driver compared with previous month
+
+
+
   - name: staging
     materialized: table
     tables:
-      - name: stg_tips_data
+      - name: stg_taxi_tips_sum
+        columns: 
+          - name : taxi_id
+          - description: unique identifier of taxi driver
+
+          - name : year
+          - description: year
+
+          - name : month
+          - description: month
+
+          - name : tips_sum
+          - description: sum of the tips for a driver 
+
+
+      - name: stg_top_drivers
+        columns:
+          - name: taxi_id
+            description: unique identifier of taxi driver
+            tests:
+              - unique
+              - not_null
+              
 
